@@ -1,6 +1,6 @@
 import fitz
 
-sra_form = '14-PLUP Inspection Report.pdf'
+sra_form = 'PLUP Inspection Report.pdf'
 
 document = fitz.open(sra_form)
 
