@@ -34,6 +34,10 @@ def selectOutputDirectory():
 
 window = Tk()
 
+img=PhotoImage(file='c:\\Users\\tom.le\Pictures\\SRA_Logo_small.png')
+
+window.iconphoto(False,img)
+
 window.geometry("450x520")
 window.title('SRA Automated Inspection Form Generator')
 
