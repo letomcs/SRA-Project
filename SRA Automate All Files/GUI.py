@@ -42,7 +42,11 @@ def validate_input(new_value):
 
 window = Tk()
 
-window.geometry("450x520")
+img=PhotoImage(file='c:\\Users\\tom.le\Pictures\\SRA_Logo_small.png')
+
+window.iconphoto(False,img)
+
+window.geometry("450x500")
 window.title('SRA Automated Inspection Form Generator')
 
 data_entry_instance = DataEntry()  # Create an instance of DataEntry
