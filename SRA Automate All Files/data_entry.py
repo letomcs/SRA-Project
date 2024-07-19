@@ -37,7 +37,7 @@ class DataEntry:
                                 field.field_value = str(row['Permit Number'])
                                 field.update()
                             if field_indx == 3:
-                                field.field_value = str(row['Contact First Name'] + ' ' + row['Contact Last Name'])
+                                field.field_value = str(row['Contact First Name'] + ' ' + row['Contact Last Name']) if pd.notna(row['Contact First Name'] + ' ' + row['Contact Last Name']) else ' '
                                 field.update()
                             if field_indx == 4:
                                 field.field_value = str(row['Address'])
