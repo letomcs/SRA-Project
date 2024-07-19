@@ -1,12 +1,15 @@
 from tkinter import *
 from tkinter import filedialog
+from tkinter import ttk  
 from data_entry import DataEntry
 
 def submit():
     input_excel = input_pathname.get()
     pdf_file = input_pdf_file.get()
     output_dir = output_directory.get()
-    result_message = data_entry_instance.process_data(input_excel, pdf_file, output_dir)
+    
+    progress_bar["value"] = 0  # Reset the progress bar
+    result_message = data_entry_instance.process_data(input_excel, pdf_file, output_dir, progress_bar)
 
     if result_message == "Success":
         status_label.config(text="Reports generated successfully", fg="green")
@@ -34,11 +37,10 @@ def selectOutputDirectory():
 
 window = Tk()
 
-img=PhotoImage(file='c:\\Users\\tom.le\Pictures\\SRA_Logo_small.png')
+img = PhotoImage(file='c:\\Users\\tom.le\\Pictures\\SRA_Logo_small.png')
+window.iconphoto(False, img)
 
-window.iconphoto(False,img)
-
-window.geometry("450x450")
+window.geometry("450x500")
 window.title('SRA Automated Inspection Form Generator')
 
 data_entry_instance = DataEntry()  # Create an instance of DataEntry
@@ -83,5 +85,9 @@ submit_button.pack(side=BOTTOM, pady=20)  # Padding for better positioning
 # Status label to display messages
 status_label = Label(window, text="", fg="black")
 status_label.pack(padx=10, pady=(10, 0))
+
+# Progress bar
+progress_bar = ttk.Progressbar(window, orient="horizontal", length=400, mode="determinate")
+progress_bar.pack(padx=10, pady=10)
 
 window.mainloop()
